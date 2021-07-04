@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
 
+
     public static void main(String[] args) {
         AuthorsAdministrator authorsAdministrator = new AuthorsAdministrator();
         EditorialAdministrator editorialAdministrator = new EditorialAdministrator();
