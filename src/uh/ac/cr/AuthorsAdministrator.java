@@ -48,15 +48,4 @@ public class AuthorsAdministrator {
 
 
 
-    //public String getAuthor(int id){
-      //  boolean authorfound;
-        //if (!existsAuthors(id)){
-          //  String authorToPrint = "";
-            //while (searchAuthor() < authorsList.size()){
-              //  authorToPrint =
-            //}
-        //}
-
-    //}
-
 }

@@ -10,8 +10,6 @@ public class UserAdministrator {
     public UserAdministrator(){
     }
 
-
-
     private void addUserToList(User user){
         usersList.add(user);
     }
@@ -36,11 +34,4 @@ public class UserAdministrator {
         }
         return patientCreated;
     }
-
-
-
-
-
-
-
 }

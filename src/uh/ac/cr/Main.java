@@ -16,7 +16,7 @@ public class Main {
         int selectedOption;
         boolean existSubmenu = false;
 
-        while (!exit) {
+        while (!exit) { //Menu principal
             System.out.println("\n---------------------------------------------------------------------\n");
 
             System.out.println("1 = Administrar catálogos de datos.\n2 = Solicitar nuevo préstamo\n3 = Consultar todos los préstamos.\n4 = Consultar todos los préstamos realizados por un usuario.\n5 = Consultar todos los préstamos realizados de un libro.\n6 = Consultar préstamos en demora.\n7 = Salir del sistema.");
@@ -83,10 +83,9 @@ public class Main {
                                 }
 
                             case 2://editorial catalogos
-
-                                System.out.println("¿Que accion desea realizar?\n1. Agregar una nueva editorial.\n2. Consultar datos de una editorial.\n3. Eliminar una editorial. \n 4. Volver al submenu");
-                                selectedOption = scanner.nextInt();
-                                switch (selectedOption){
+                                System.out.println("¿Que accion desea realizar?\n1. Agregar una nueva editorial.\n2. Consultar datos de una editorial.\n3. Eliminar una editorial. \n4. Volver al submenu");
+                                int subCatalogOptionSelected = scanner.nextInt();
+                                switch (subCatalogOptionSelected){
                                     case 1: //crear una nueva editorial
                                         System.out.println("Ingrese la identificación de la nueva editorial que desea agregar.");
                                         int editorialId = scanner.nextInt();
@@ -114,11 +113,12 @@ public class Main {
                                         existSubmenu = true;
                                         break;
                                         // pendientes defaul en todos
+                                    default:
                                 }
                             case 3://Catalogo libro.
-                                System.out.println("¿Que accion desea realizar?\n1. Agregar un nuevo libro.\n2. Consultar datos de un libro.\n3.Eliminar un libro.\n 4. Volver al submenu");
-                                selectedOption = scanner.nextInt();
-                                switch (selectedOption){
+                                System.out.println("¿Que accion desea realizar?\n1. Agregar un nuevo libro.\n2. Consultar datos de un libro.\n3.Eliminar un libro.\n4. Volver al submenu");
+                                subCatalogOptionSelected = scanner.nextInt();
+                                switch (subCatalogOptionSelected){
                                     case 1: //agregar un nuevo libro
                                         break;
                                     case 2: //consultar datos de un libro
@@ -131,9 +131,9 @@ public class Main {
                                 }
 
                             case 4://catalago de usuario.
-                                System.out.println("¿Que accion desea realizar?\n1. Agregar un nuevo usuario.\n2. Consultar datos de un usuario.\n3.Actualizar los datos de un usuario.\n4. Eliminar un usuario. \n 5. Volver al submenu");
-                                selectedOption = scanner.nextInt();
-                                switch (selectedOption){
+                                System.out.println("¿Que accion desea realizar?\n1. Agregar un nuevo usuario.\n2. Consultar datos de un usuario.\n3.Actualizar los datos de un usuario.\n4. Eliminar un usuario.\n5. Volver al submenu");
+                                 subCatalogOptionSelected = scanner.nextInt();
+                                switch (subCatalogOptionSelected){
                                     case 1:
                                         System.out.println("Ingrese la identificación del nuevo usuario.");
                                         int usersId = scanner.nextInt();
