@@ -34,17 +34,19 @@ public class AuthorsAdministrator {
         return authorsCreate;
     }
 
-    public int searchAuthor(int id){
-        boolean found = false;
-        int authorsIterator = 0;
-        while (!found){
-            if (authorsList.get(authorsIterator).getId() == id){
-                found = true;
-            }
-            authorsIterator++;
-        }
-        return authorsIterator;
-    }
+    //public void getAuthor (int id) {
+      //  System.out.println(authorIterator);
+        //if (blnExist == true) {
+          //  System.out.println("Id: " + authorsList.get(authorIterator).getId() + "\nName: " + authorsList.get(authorIterator).getName() + "\nLast name: " + authorsList.get(authorIterator).getLastName() + "\nSecondSumername: "+ authorsList.get(authorIterator).getSecondSumername());
+        //}
+        //else {
+          //  System.out.println("La identificacion:" + id + " no se encuentra reguistrada en la lista de autores.");
+        //}
+
+    //}
+
+
+
 
     //public String getAuthor(int id){
       //  boolean authorfound;

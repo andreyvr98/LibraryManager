@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         AuthorsAdministrator authorsAdministrator = new AuthorsAdministrator();
         EditorialAdministrator editorialAdministrator = new EditorialAdministrator();
+        UserAdministrator userAdministrator = new UserAdministrator();
         Scanner scanner = new Scanner(System.in);
 
         boolean exit = false;
@@ -30,51 +31,56 @@ public class Main {
             switch (selectedOption){
                 case 1://
                     System.out.println("¿Que catalogo desea utilizar?\n1.Catálogo de autor\n2.Catálogo de editorial\n3.Catalogo de libro\n4.Catalogo de usuario\n5.Salir del sub menú y volver al menú\n" );
-                    selectedOption = scanner.nextInt();
-                    while (!existSubmenu){
-                        switch (selectedOption){
+                    int optionSelectedCatalog = scanner.nextInt();
+                    while (existSubmenu == false){
+                        switch (optionSelectedCatalog){
                             case 1 :
                             //catalogos autor
-                            System.out.println("¿Que accion desea realizar?\n1. Ingresar un nuevo autor.\n2. Consultar datos de un autor.\n3. Actualizar datos de un autor.\n4. Eliminar un autor.\n5.Desea volver al submenu.");
-                            selectedOption = scanner.nextInt();
-                            switch (selectedOption){
+                                while (existSubmenu = false) {
+                                    System.out.println("¿Que accion desea realizar?\n1. Ingresar un nuevo autor.\n2. Consultar datos de un autor.\n3. Actualizar datos de un autor.\n4. Eliminar un autor.\n5.Desea volver al submenu.");
+                                    int subCatalogOptionSelected = scanner.nextInt();
+                                    switch (subCatalogOptionSelected) {
 
-                                case 1: //nuevo autor
-                                    System.out.println("Ingrese la identificación del nuevo autor que desea agregar.");
-                                    int authorsId = scanner.nextInt();
-                                    scanner.nextLine();
-                                    System.out.println("Ingrese la nombre del nuevo autor que desea agregar.");
-                                    String authorName = scanner.nextLine();
-                                    System.out.println("Ingres el primer apellido del nuevo autor que desea agregar");
-                                    String authorLastName = scanner.nextLine();
-                                    System.out.println("Ingrese el segundo apellido del nuevo autor que desea agregar");
-                                    String authorSecondSurname = scanner.nextLine();
-                                    System.out.println("Ingrese la fecha de nacimiento del nuevo autor que desea agregar");
-                                    int authorDateBirth = scanner.nextInt();
-                                    scanner.nextLine();
+                                        case 1: //nuevo autor
+                                            System.out.println("Ingrese la identificación del nuevo autor que desea agregar.");
+                                            int authorsId = scanner.nextInt();
+                                            scanner.nextLine();
+                                            System.out.println("Ingrese la nombre del nuevo autor que desea agregar.");
+                                            String authorName = scanner.nextLine();
+                                            System.out.println("Ingres el primer apellido del nuevo autor que desea agregar");
+                                            String authorLastName = scanner.nextLine();
+                                            System.out.println("Ingrese el segundo apellido del nuevo autor que desea agregar");
+                                            String authorSecondSurname = scanner.nextLine();
+                                            System.out.println("Ingrese la fecha de nacimiento del nuevo autor que desea agregar");
+                                            int authorDateBirth = scanner.nextInt();
+                                            scanner.nextLine();
 
-                                    boolean authorCreated = authorsAdministrator.createAuthors(authorsId,authorName,authorLastName,authorSecondSurname,authorDateBirth);
+                                            boolean authorCreated = authorsAdministrator.createAuthors(authorsId, authorName, authorLastName, authorSecondSurname, authorDateBirth);
 
-                                    if (authorCreated) {
-                                        System.out.println("\nSe creo un nuevo autor con la identificación: " + authorsId);
-                                    } else {
-                                        System.out.println("\nNo podemos crear el autor, ya que la identificacion " + authorsId + " esta registrada. ");
+                                            if (authorCreated) {
+                                                System.out.println("\nSe creo un nuevo autor con la identificación: " + authorsId);
+                                            } else {
+                                                System.out.println("\nNo podemos crear el autor, ya que la identificacion " + authorsId + " esta registrada. ");
+                                            }
+                                            break;
+                                        case 2://consultar autor existente
+                                            System.out.println("Ingrese la identificación del autor que desea consultar.");
+                                            authorsId = scanner.nextInt();
+                                            scanner.nextLine();
+                                          //  authorsAdministrator.getAuthor(authorsId);
+                                            System.out.println();
+                                            break;
+                                        case 3://actulizar datos del autor
+                                            break;
+                                        case 4://eliminar autor
+                                            break;
+                                        case 5://salir al submenu
+                                            existSubmenu = true;
+                                            break;
+                                        default:
+
                                     }
-                                    break;
-                                case 2://consultar autor existente
-                                    System.out.println("Ingrese la identificación del autor que desea consultar.");
-                                    authorsId = scanner.nextInt();
-                                    scanner.nextLine();
-                                    break;
-                                case 3://actulizar datos del autor
-                                    break;
-                                case 4://eliminar autor
-                                    break;
-                                case 5://salir al submenu
-                                    existSubmenu =true;
-                                    break;
-
-                            }
+                                }
 
                             case 2://editorial catalogos
 
@@ -105,6 +111,7 @@ public class Main {
                                     case 3://eliminar una editorial
                                         break;
                                     case 4://salir al submenu
+                                        existSubmenu = true;
                                         break;
                                         // pendientes defaul en todos
                                 }
@@ -119,6 +126,7 @@ public class Main {
                                     case 3: //eliminar un libro
                                         break;
                                     case 4: //salir al submenu
+                                        existSubmenu = true;
                                         break;
                                 }
 
@@ -140,14 +148,24 @@ public class Main {
                                         int userNumber = scanner.nextInt();
                                         scanner.nextLine();
 
-                                        boolean userCreate = authorsAdministrator.createAuthors(usersId,userName, userLastName,secondSurname,userNumber);
+                                        boolean userCreate = userAdministrator.createUser(usersId,userName, userLastName,secondSurname,userNumber);
                                         if (userCreate) {
                                             System.out.println("\nSe a creado un nuevo usuario con la identificación: " + usersId);
                                         } else {
                                             System.out.println("\nNo podemos crear un usuario, ya que la identificacion " + usersId + " esta registrada. ");
                                         }
-
-
+                                        break;
+                                    case 2://Consultar datos de un usuario.
+                                        break;
+                                    case 3://Actualizar datos de un usuario.
+                                        break;
+                                    case 4://Eliminar un usuario.
+                                        break;
+                                    case 5://salir al submenu.
+                                        existSubmenu = true;
+                                        break;
+                                    default:
+                                        break;
 
                                 }
 

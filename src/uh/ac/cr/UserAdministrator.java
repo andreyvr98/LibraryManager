@@ -27,7 +27,7 @@ public class UserAdministrator {
         }
         return found;
     }
-    public boolean createPatient(int id, String name, String lastName, String secondSurname, int userNumber){
+    public boolean createUser(int id, String name, String lastName, String secondSurname, int userNumber){
         boolean patientCreated = false;
         if(!existsUser(id)){
             User newUser = new User(id, name, lastName, secondSurname, userNumber);
