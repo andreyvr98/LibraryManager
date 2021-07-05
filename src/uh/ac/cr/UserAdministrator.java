@@ -13,7 +13,7 @@ public class UserAdministrator {
     private void addUserToList(User user){
         usersList.add(user);
     }
-
+//Validar si existe o no un usuario
     public boolean existsUser(int id) {
         boolean found = false;
         int userIterator = 0;

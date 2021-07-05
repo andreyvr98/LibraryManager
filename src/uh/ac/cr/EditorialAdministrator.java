@@ -14,6 +14,8 @@ public class EditorialAdministrator {
         editorialList.add(editorial);
     }
 
+    //Validar si existe o no la editorial.
+
     public boolean existsEditorial(int id){
         boolean found = false;
         int editorialIterator = 0;
@@ -25,6 +27,8 @@ public class EditorialAdministrator {
         }
         return found;
     }
+
+    //Crear nueva editorial
 
     public boolean createEditorial (int id, String name, String editorialLocation, String editorialNumber ){
         boolean editorialCreate = false;

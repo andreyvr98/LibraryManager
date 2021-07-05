@@ -7,7 +7,7 @@ public class Editorial {
     private String editorialNumber;
 
     // Atributos editorial
-    public Editorial(int id, String name, String editorialLocation, int contactNumber) {
+    public Editorial(int id, String name, String editorialLocation, String editorialNumber) {
         this.id = id;
         this.name = name;
         this. editorialLocation = editorialLocation;
@@ -30,20 +30,20 @@ public class Editorial {
         this.name = name;
     }
 
-    public String getPhysicalLocation() {
+    public String getEditorialLocation() {
         return editorialLocation;
     }
 
-    public void setPhysicalLocation(String physicalLocation) {
-        this.editorialLocation = physicalLocation;
+    public void setEditorialLocation(String editorialLocation) {
+        this.editorialLocation = editorialLocation;
     }
 
-    public String getContactNumber() {
+    public String getEditorialNumber() {
         return editorialNumber;
     }
 
-    public void setContactNumber(String contactNumber) {
-        this.editorialNumber = contactNumber;
+    public void setEditorialNumber(String editorialNumber) {
+        this.editorialNumber = editorialNumber;
     }
 }
 

@@ -5,10 +5,10 @@ public class User {
     private String name;
     private String lastName;
     private String secondSurname;
-    private int userNumber;
+    private String userNumber;
 
     //atributos usuario
-    public User(int id, String name, String lastName, String secondSurname, int userNumber) {
+    public User(int id, String name, String lastName, String secondSurname, String userNumber) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -48,11 +48,11 @@ public class User {
         this.secondSurname = secondSurname;
     }
 
-    public int getUserNumber() {
+    public String getUserNumber() {
         return userNumber;
     }
 
-    public void setUserNumber(int userNumber) {
+    public void setUserNumber(String userNumber) {
         this.userNumber = userNumber;
     }
 }

@@ -5,7 +5,7 @@ public class Authors {
     private String name;
     private  String lastName;
     private String secondSurname;
-    private int dateBirth;
+    private String dateBirth;
 
 //autor atributos
     public Authors(int id, String name, String lastName, String secondSumername, String dateBirth){
@@ -48,11 +48,11 @@ public class Authors {
         this.secondSurname = secondSumername;
     }
 
-    public int getDate() {
+    public String getDate() {
         return dateBirth;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.dateBirth = date;
     }
 }

@@ -2,6 +2,8 @@ package uh.ac.cr;
 import  uh.ac.cr.model.Authors;
 
 import java.util.Scanner;
+                                            //Examen I - Programacion I
+                                     //Estudiantes: Andrey Vargas & Génesis Delgado. :)
 
 public class Main {
 
@@ -24,12 +26,12 @@ public class Main {
 
 
             System.out.println("\n---------------------------------------------------------------------\n");
-            System.out.println("Option selected: " + selectedOption);
+            System.out.println("Opción seleccionada: " + selectedOption);
 
 
             switch (selectedOption){
                 case 1://
-                    System.out.println("¿Que catalogo desea utilizar?\n1.Catálogo de autor\n2.Catálogo de editorial\n3.Catalogo de libro\n4.Catalogo de usuario\n5.Salir del sub menú y volver al menú\n" );
+                    System.out.println("¿Qué catalogo desea utilizar?\n1.Catálogo de autor\n2.Catálogo de editorial\n3.Catalogo de libro\n4.Catalogo de usuario\n5.Salir del sub menú y volver al menú\n" );
                     int optionSelectedCatalog = scanner.nextInt();
                     boolean existSubmenu = false;
 
@@ -222,7 +224,7 @@ public class Main {
                                 System.out.println("¿Que accion desea realizar?\n1. Agregar un nuevo usuario.\n2. Consultar datos de un usuario.\n3. Actualizar los datos de un usuario.\n4. Eliminar un usuario.\n5. Volver al submenu");
                                  int subCatalogOptionSelected = scanner.nextInt();
                                 switch (subCatalogOptionSelected){
-                                    case 1:
+                                    case 1: //Agregar un nuevo usuario
                                         System.out.println("Ingrese la identificación del nuevo usuario.");
                                         int usersId = scanner.nextInt();
                                         scanner.nextLine();
@@ -233,7 +235,7 @@ public class Main {
                                         System.out.println("Ingrese el segundo apellido del nuevo usuario.");
                                         String userSecondSurname = scanner.nextLine();
                                         System.out.println("Ingrese el número de teléfono de contacto del usuario.");
-                                        int userNumber = scanner.nextInt();
+                                        String userNumber = scanner.nextLine();
                                         scanner.nextLine();
 
                                         boolean userCreate = userAdministrator.createUser(usersId,userName, userLastName,userSecondSurname,userNumber);
@@ -279,6 +281,7 @@ public class Main {
                                         existSubmenu = true;
                                         break;
                                     default:
+                                        System.out.println("Por favor ingrese una opción valida, del rango del 1 al 5.");
                                         break;
 
                                 }
