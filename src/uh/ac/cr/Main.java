@@ -12,6 +12,8 @@ public class Main {
         AuthorsAdministrator authorsAdministrator = new AuthorsAdministrator();
         EditorialAdministrator editorialAdministrator = new EditorialAdministrator();
         UserAdministrator userAdministrator = new UserAdministrator();
+        BookAdministrator bookAdministrator = new BookAdministrator();
+        LendingAdministrator lendingAdministrator = new LendingAdministrator();
         Scanner scanner = new Scanner(System.in);
 
         boolean exit = false;
@@ -161,7 +163,7 @@ public class Main {
                             //catalogo libro.
 
 
-                            System.out.println("¿Qué acción desea realizar?\n1. Agregar un nuevo libro.\n2. Consultar datos de un libro.\n3.Eliminar un libro.\n4. Volver al submenu");
+                            System.out.println("¿Qué acción desea realizar?\n1. Agregar un nuevo libro.\n2. Consultar datos de un libro.\n3. Eliminar un libro.\n4. Volver al submenu");
                             int subCatalogOptionSelected = scanner.nextInt();
                             switch (subCatalogOptionSelected) {
                                 case 1:
@@ -174,8 +176,11 @@ public class Main {
 
                                     System.out.println("Seleccione el autor con la identificación correspondiente");
                                     System.out.println(authorsAdministrator.printAuthor());
-                                    int authorBookId = scanner.nextInt();
+                                    int authorsId = scanner.nextInt();
                                     scanner.nextLine();
+
+                                    String authors = String.valueOf(authorsAdministrator.getAuthors(authorsId));
+
 
                                     //Fecha de publicacion
                                     System.out.println("Ingrese la fecha de publicación del libro,por favor usar el formato dd/mm/aa");
@@ -192,8 +197,11 @@ public class Main {
 
                                     System.out.println("Seleccione la editorial con la identificación correspondiente");
                                     System.out.println(editorialAdministrator.printEditorial());
-                                    int editorialBookId = scanner.nextInt();
+                                    int editorialId = scanner.nextInt();
                                     scanner.nextLine();
+
+                                    String editorial = editorialAdministrator.getEditorial(editorialId);
+
 
                                     //Copias libro
 
@@ -201,12 +209,35 @@ public class Main {
                                     int bookCopy = scanner.nextInt();
                                     scanner.nextLine();
 
+                                    boolean bookCreated = bookAdministrator.createBook(bookId, authors, publicationDate, bookEdition, bookTitle, String.valueOf(editorial), bookCopy);
+                                    if (bookCreated) {
+                                        System.out.println("\nSe creo una nueva editorial con la identificación: " + bookId + "\n");
+
+                                    } else {
+                                        System.out.println("\nNo podemos crear el libro, ya que la identificación " + bookId + "porque ya fue registrada ");
+                                    }
 
 
                                     break;
-                                case 2:  //consultar datos de un libro
+                                case 2:
+                                    //Consultar datos de un libro
+
+                                    System.out.println("Ingrese la identificación del libro que desea buscar ");
+                                    bookId = scanner.nextInt();
+                                    scanner.nextLine();
+                                    bookAdministrator.getBook(bookId);
+
+
                                     break;
-                                case 3: //eliminar un libro
+                                case 3:
+                                    //eliminar un libro
+
+                                    System.out.println("Ingrese la identificación del libro que desea eliminar.\n");
+                                    bookId = scanner.nextInt();
+                                    scanner.nextLine();
+                                    bookAdministrator.deleteBook(bookId);
+
+
                                     break;
                                 case 4: //salir al submenu
                                     existSubmenu = true;
@@ -289,8 +320,43 @@ public class Main {
                         }
                     }
 
+                case 2:
+                    boolean culminate = false;
+                    System.out.println("Ingrese la identificación del préstamo. ");
+                    int lendingId = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Seleccione el usuario con la identificación correspondiente"+"\n");
+                    System.out.println(userAdministrator.printUser());
+                    int userId = scanner.nextInt();
+                    scanner.nextLine();
+                    String userLending = userAdministrator.getUserLending(userId);
+
+                    //Lista de libros registrados
+                    System.out.println("Seleccione el libro con la identificación correspondiente");
+                    System.out.println(bookAdministrator.printBook());
+                    int bookId = scanner.nextInt();
+                    scanner.nextLine();
+                    String lendingBook = bookAdministrator.getBookLending(bookId);
+
+                    System.out.println("Ingresar la fecha de inicio del préstamo,por favor usar el formato dd/mm/aa"+"\n");
+                    String requestDate = scanner.nextLine();
+
+                    System.out.println("Ingresar la fecha de final del préstamo, por favor usar el formato dd/mm/aa"+"\n");
+                    String returnDate = scanner.nextLine();
+
+                    boolean lendingCreate = lendingAdministrator.createLending(lendingId,userLending,lendingBook,requestDate,returnDate, culminate);
+                    if (lendingCreate){
+                        System.out.println("\nSe asigno un prestamo a la identificación: " + lendingId + "\n");
+                    } else {
+                        System.out.println("\nNo podemos asignar un prestamo, ya que la identificación " + userId + " no esta previamente registrada.\n ");
+                    }
 
 
+
+                    break;
+                default:
+                    System.out.println("Por favor ingrese una opción valida, del rango del 1 al 5.");
+                    break;
 
 
 

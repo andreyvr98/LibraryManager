@@ -95,4 +95,18 @@ public class EditorialAdministrator {
         }
         return editorialToPrint;
     }
+    public java.lang.String getEditorial(int id){
+        boolean found = false;
+        java.lang.String editorial = null;
+        int editorialIterator = 0;
+        while(!found && editorialIterator < editorialList.size()){
+            if(editorialList.get(editorialIterator).getId() == id){
+                found = true;
+                editorial = editorialList.get(editorialIterator).getName();
+            }
+            editorialIterator++;
+        }
+        return editorial;
+    }
+
 }

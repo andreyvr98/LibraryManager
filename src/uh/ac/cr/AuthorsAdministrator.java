@@ -101,4 +101,17 @@ public class AuthorsAdministrator {
         }
         return authorsToPrint;
     }
+    public java.lang.String getAuthors(int id){
+        boolean found = false;
+        java.lang.String author = null;
+        int authorIterator = 0;
+        while(!found && authorIterator < authorsList.size()){
+            if(authorsList.get(authorIterator).getId() == id){
+                found = true;
+                author = authorsList.get(authorIterator).getName();
+            }
+            authorIterator++;
+        }
+        return author;
+    }
 }
