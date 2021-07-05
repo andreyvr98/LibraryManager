@@ -19,4 +19,11 @@ public class Book {
         this.bookEditorial = bookEditorial;
         this.bookCopy = bookCopy;
     }
+
+
+
+
+
+
+
 }

@@ -8,7 +8,7 @@ public class Authors {
     private int dateBirth;
 
 //autor atributos
-    public Authors(int id, String name, String lastName, String secondSumername, int date){
+    public Authors(int id, String name, String lastName, String secondSumername, String dateBirth){
         this.id = id;
         this.name = name;
         this.lastName = lastName;
