@@ -1,5 +1,6 @@
 package uh.ac.cr;
 import  uh.ac.cr.model.Authors;
+import uh.ac.cr.model.Editorial;
 
 import java.util.Scanner;
                                             //Examen I - Programacion I
@@ -66,16 +67,20 @@ public class Main {
                                     if (authorCreated) {
                                         System.out.println("\nSe creo un nuevo autor con la identificación:  " + authorsId + "\n");
                                     } else {
-                                        System.out.println("\nNo podemos crear el autor, ya que la identificacion " + authorsId + " esta registrada.\n ");
+                                        System.out.println("\nNo podemos crear el autor, ya que la identificacion " + authorsId + " porque ya fue registrada.\n ");
                                     }
                                     break;
-                                case 2://consultar autor existente
+                                case 2:
+                                     //consultar autor existente
+
                                     System.out.println("Ingrese la identificación del autor que desea consultar.");
                                     authorsId = scanner.nextInt();
                                     scanner.nextLine();
                                     authorsAdministrator.getAuthor(authorsId);
                                     break;
-                               case 3://actulizar datos del autor
+                               case 3:
+                                   //actulizar datos del autor
+
                                    System.out.println("Ingrese la identificación del autor que desea actualizar.");
                                    authorsId = scanner.nextInt();
                                    scanner.nextLine();
@@ -90,13 +95,17 @@ public class Main {
                                    authorsAdministrator.updateAuthor(authorsId,authorName,authorLastName,authorSecondSurname,authorDateBirth);
 
                                     break;
-                                case 4://eliminar autor
+                                case 4:
+                                    //eliminar autor
+
                                     System.out.println("Ingrese la identificación del autor que desea eliminar.");
                                     authorsId = scanner.nextInt();
                                     scanner.nextLine();
                                     authorsAdministrator.deleteAuthor(authorsId);
                                     break;
-                                case 5://salir al submenu
+                                case 5:
+                                    //salir al submenu
+
                                     existSubmenu = true;
                                     break;
                                 default:
@@ -131,17 +140,20 @@ public class Main {
                                         System.out.println("\nSe creo una nueva editorial con la identificación: " + editorialId + "\n");
 
                                     } else {
-                                        System.out.println("\nNo podemos crear la editorial, ya que la identificación " + editorialId + " esta registrada. ");
+                                        System.out.println("\nNo podemos crear la editorial, ya que la identificación " + editorialId + " porque ya fue registrada.");
                                     }
                                     break;
-                                case 2://consultar datos de una editorial
+                                case 2:
+                                    //consultar datos de una editorial
+
                                     System.out.println("Ingrese la identificación de la editorial que desea consultar.");
                                     editorialId = scanner.nextInt();
                                     scanner.nextLine();
                                     editorialAdministrator.geteditorial(editorialId);
 
                                     break;
-                                case 3://eliminar una editorial
+                                case 3:
+                                    //eliminar una editorial
 
                                     System.out.println("Ingrese la identificación de la editorial que desea eliminar.");
                                     editorialId = scanner.nextInt();
@@ -150,7 +162,9 @@ public class Main {
 
                                     break;
 
-                                case 4://salir al submenu
+                                case 4:
+                                    //salir al submenu
+
                                     existSubmenu = true;
                                     break;
                                 default:
@@ -168,13 +182,14 @@ public class Main {
                             switch (subCatalogOptionSelected) {
                                 case 1:
                                     //Agregar un nuevo libro
+
                                     System.out.println("Ingrese la identificación del nuevo libro que desea agregar");
                                     int bookId = scanner.nextInt();
                                     scanner.nextLine();
 
                                     //Seleccion autor
 
-                                    System.out.println("Seleccione el autor con la identificación correspondiente");
+                                    System.out.println("Seleccione la identificación del autor correspondiente");
                                     System.out.println(authorsAdministrator.printAuthor());
                                     int authorsId = scanner.nextInt();
                                     scanner.nextLine();
@@ -203,7 +218,7 @@ public class Main {
                                     String editorial = editorialAdministrator.getEditorial(editorialId);
 
 
-                                    //Copias libro
+                                    //Copias libro disponibles
 
                                     System.out.println("Ingrese la cantidad de copias disponibles");
                                     int bookCopy = scanner.nextInt();
@@ -239,7 +254,8 @@ public class Main {
 
 
                                     break;
-                                case 4: //salir al submenu
+                                case 4:
+                                    //salir al submenu
                                     existSubmenu = true;
                                     break;
                                 default:
@@ -249,13 +265,15 @@ public class Main {
                         }else if (optionSelectedCatalog == 4){
 
 
-                            //Catalogo de usurio
+                            //Catalogo de usuario
 
 
                                 System.out.println("¿Que accion desea realizar?\n1. Agregar un nuevo usuario.\n2. Consultar datos de un usuario.\n3. Actualizar los datos de un usuario.\n4. Eliminar un usuario.\n5. Volver al submenu");
                                  int subCatalogOptionSelected = scanner.nextInt();
                                 switch (subCatalogOptionSelected){
-                                    case 1: //Agregar un nuevo usuario
+                                    case 1:
+                                        //Agregar un nuevo usuario
+
                                         System.out.println("Ingrese la identificación del nuevo usuario.");
                                         int usersId = scanner.nextInt();
                                         scanner.nextLine();
@@ -273,17 +291,20 @@ public class Main {
                                         if (userCreate) {
                                             System.out.println("\nSe a creado un nuevo usuario con la identificación: " + usersId);
                                         } else {
-                                            System.out.println("\nNo podemos crear un usuario, ya que la identificacion " + usersId + " esta registrada. ");
+                                            System.out.println("\nNo podemos crear un usuario, ya que la identificacion " + usersId + " porque ya fue registrado ");
                                         }
                                         break;
-                                    case 2://Consultar datos de un usuario.
+                                    case 2:
+                                        //Consultar datos de un usuario.
 
                                         System.out.println("Ingrese la identificación del usuario que desea consultar.");
                                         usersId = scanner.nextInt();
                                         scanner.nextLine();
                                         userAdministrator.getUser(usersId);
                                         break;
-                                    case 3://Actualizar datos de un usuario.
+                                    case 3:
+                                        //Actualizar datos de un usuario.
+
                                         System.out.println("Ingrese la identificación del usuario que desea actualizar.");
                                         usersId = scanner.nextInt();
                                         scanner.nextLine();
@@ -301,14 +322,18 @@ public class Main {
 
 
                                         break;
-                                    case 4://Eliminar un usuario.
+                                    case 4:
+                                        //Eliminar un usuario.
+
                                         System.out.println("Ingrese la identificación del usuario que desea eliminar.");
                                         usersId = scanner.nextInt();
                                         scanner.nextLine();
                                         userAdministrator.deleteUser(usersId);
 
                                         break;
-                                    case 5://salir al submenu.
+                                    case 5:
+                                        //salir al submenu.
+
                                         existSubmenu = true;
                                         break;
                                     default:

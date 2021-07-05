@@ -97,5 +97,30 @@ public class UserAdministrator {
         }
     }
 
+    // Lista de usuarios
+
+    public String printUser() {
+        String userToPrint = "";
+        int userIterator = 0;
+        while (userIterator < usersList.size()){
+            userToPrint = userToPrint + usersList.get(userIterator).getId() + " - " + usersList.get(userIterator).getName() + "\n" ;
+            userIterator++;
+        }
+        return userToPrint;
+    }
+    public java.lang.String getUserLending(int id){
+        boolean found = false;
+        java.lang.String user = null;
+        int userIterator = 0;
+        while(!found && userIterator < usersList.size()){
+            if(usersList.get(userIterator).getId() == id){
+                found = true;
+                user = usersList.get(userIterator).getName();
+            }
+            userIterator++;
+        }
+        return user;
+    }
+
 
 }
