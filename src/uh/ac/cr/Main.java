@@ -28,8 +28,6 @@ public class Main {
             System.out.println("1 = Administrar catálogos de datos.\n2 = Solicitar nuevo préstamo\n3 = Consultar todos los préstamos.\n4 = Consultar todos los préstamos realizados por un usuario.\n5 = Consultar todos los préstamos realizados de un libro.\n6 = Consultar préstamos en demora.\n7 = Salir del sistema.");
             selectedOption = scanner.nextInt();
 
-
-
             System.out.println("\n---------------------------------------------------------------------\n");
             System.out.println("Opción seleccionada: " + selectedOption);
 
@@ -47,7 +45,7 @@ public class Main {
                             //catalogos autor
 
 
-                            System.out.println("¿Qué acción desea realizar?\n1. Ingresar un nuevo autor.\n2. Consultar datos de un autor.\n3. Actualizar datos de un autor.\n4. Eliminar un autor.\n5.Desea volver al submenu.");
+                            System.out.println("¿Qué acción desea realizar?\n1. Ingresar un nuevo autor.\n2. Consultar datos de un autor.\n3. Actualizar datos de un autor.\n4. Eliminar un autor.\n5. Desea volver al submenu.");
                             int subCatalogOptionSelected = scanner.nextInt();
                             switch (subCatalogOptionSelected) {
 
@@ -228,7 +226,7 @@ public class Main {
 
                                     boolean bookCreated = bookAdministrator.createBook(bookId, authors, publicationDate, bookEdition, bookTitle, String.valueOf(editorial), bookCopy);
                                     if (bookCreated) {
-                                        System.out.println("\nSe creo una nueva editorial con la identificación: " + bookId + "\n");
+                                        System.out.println("\nSe creo un libro con la identificación: " + bookId + "\n");
 
                                     } else {
                                         System.out.println("\nNo podemos crear el libro, ya que la identificación " + bookId + "porque ya fue registrada ");
@@ -291,11 +289,12 @@ public class Main {
 
                                         boolean userCreate = userAdministrator.createUser(usersId,userName, userLastName,userSecondSurname,userNumber);
                                         if (userCreate) {
-                                            System.out.println("\nSe a creado un nuevo usuario con la identificación: " + usersId);
+                                            System.out.println("\nSe a creado un nuevo usuario con la identificación: " + usersId +"\n");
                                         } else {
                                             System.out.println("\nNo podemos crear un usuario, ya que la identificacion " + usersId + " porque ya fue registrado\n ");
                                         }
                                         break;
+
                                     case 2:
                                         //Consultar datos de un usuario.
 
@@ -321,7 +320,6 @@ public class Main {
                                         scanner.nextLine();
 
                                         userAdministrator.updateUser(usersId,userName, userLastName, userSecondSurname,userNumber);
-
 
                                         break;
                                     case 4:
@@ -391,8 +389,6 @@ public class Main {
                     } else {
                         System.out.println("\nNo podemos asignar un prestamo, ya que la identificación " + userId + " no esta previamente registrada.\n ");
                     }
-
-
 
                     break;
                 default:
