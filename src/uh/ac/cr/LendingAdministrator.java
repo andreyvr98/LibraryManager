@@ -1,6 +1,5 @@
 package uh.ac.cr;
 
-import uh.ac.cr.model.Book;
 import uh.ac.cr.model.Lending;
 import java.util.ArrayList;
 
@@ -34,12 +33,29 @@ public class LendingAdministrator {
     public boolean createLending(int id, String lendingUser, String lendingBook, String requestDate,String returnDate, boolean culminate) {
         boolean bookCreated = false;
         if (!existLending(id)) {
+            culminate = false;
             Lending newLending = new Lending(id,lendingUser,lendingBook,requestDate,returnDate,culminate);
             this.addLendingToList(newLending);
             bookCreated = true;
         }
         return bookCreated;
     }
+
+    // Validación de prestamos sin culminar existentes.
+    public int culminateLending( ){
+        int lendingIterator = 0;
+        int counterLackCulminate =0;
+
+        while (lendingsList.size() < lendingIterator){
+            if (!lendingsList.get(lendingIterator).getCulminate()){
+                counterLackCulminate++;
+            }else {
+                lendingIterator++;
+            }
+        }
+        return counterLackCulminate;
+    }
+
 
 
 

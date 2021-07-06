@@ -20,6 +20,8 @@ public class Main {
         boolean exit = false;
         int selectedOption;
 
+        System.out.println( "               Estudiantes: Andrey Vargas & Génesis Delgado\n\n                             LIBRERY MANAGER"  );
+
         while (!exit) { //Menu principal
             System.out.println("\n---------------------------------------------------------------------\n");
 
@@ -291,7 +293,7 @@ public class Main {
                                         if (userCreate) {
                                             System.out.println("\nSe a creado un nuevo usuario con la identificación: " + usersId);
                                         } else {
-                                            System.out.println("\nNo podemos crear un usuario, ya que la identificacion " + usersId + " porque ya fue registrado ");
+                                            System.out.println("\nNo podemos crear un usuario, ya que la identificacion " + usersId + " porque ya fue registrado\n ");
                                         }
                                         break;
                                     case 2:
@@ -344,12 +346,18 @@ public class Main {
 
                         }
                     }
+                    break;
 
                 case 2:
-                    boolean culminate = false;
+                    //Crear un nuevo prestamo.
+
+                    boolean culminate = true;
                     System.out.println("Ingrese la identificación del préstamo. ");
                     int lendingId = scanner.nextInt();
                     scanner.nextLine();
+
+                    //Lista de usuarios.
+
                     System.out.println("Seleccione el usuario con la identificación correspondiente"+"\n");
                     System.out.println(userAdministrator.printUser());
                     int userId = scanner.nextInt();
@@ -357,11 +365,19 @@ public class Main {
                     String userLending = userAdministrator.getUserLending(userId);
 
                     //Lista de libros registrados
+
                     System.out.println("Seleccione el libro con la identificación correspondiente");
                     System.out.println(bookAdministrator.printBook());
                     int bookId = scanner.nextInt();
                     scanner.nextLine();
                     String lendingBook = bookAdministrator.getBookLending(bookId);
+
+                    //Libros disponibles para prestamos
+
+                    int numberCopy = bookAdministrator.amountCopy(bookId);
+                    int counterLackCulminate = lendingAdministrator.culminateLending();
+                    bookAdministrator.availableBook(numberCopy,counterLackCulminate);
+
 
                     System.out.println("Ingresar la fecha de inicio del préstamo,por favor usar el formato dd/mm/aa"+"\n");
                     String requestDate = scanner.nextLine();

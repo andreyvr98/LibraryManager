@@ -56,11 +56,13 @@ package uh.ac.cr.model;
             this.returnDate = returnDate;
         }
 
-        public boolean culminate() {
+        public boolean getCulminate() {
             return culminate;
         }
 
         public void setCulminate(boolean culminate) {
             this.culminate = culminate;
         }
+
+
     }

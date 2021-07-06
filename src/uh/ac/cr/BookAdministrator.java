@@ -1,14 +1,15 @@
 package uh.ac.cr;
 
-import uh.ac.cr.model.Authors;
 import uh.ac.cr.model.Book;
-import uh.ac.cr.model.Editorial;
 
 
 import java.util.ArrayList;
+import java.util.concurrent.LinkedBlockingDeque;
 
-    public class BookAdministrator {
+
+public class BookAdministrator {
         private ArrayList<Book> booksList = new ArrayList<>();
+
 
         public BookAdministrator() {
         }
@@ -102,15 +103,41 @@ import java.util.ArrayList;
             }
             return book;
         }
-        // Considerando la cantidad e copias de un libro, el libro está disponible con base en, cuántos están prestados y cuántos aún el préstamo no ha culminado.
+        // Copias de libros disponible.
 
-        public void  catidadCopias(int bookCopy, int bookId){
+        public int amountCopy(int bookId){
+            int bookIterator = 0;
+            int numberCopy;
+            boolean found = false;
+            while (!found){
+                if (bookId == booksList.get(bookIterator).getId()){
+                    found = true;
+                }else {
+                    bookIterator++;
+                }
+            }
+            numberCopy = booksList.get(bookIterator).getBookCopy();
 
+            return numberCopy;
 
+        }
+        // Libros disponibles para prestar
+
+        public void availableBook(int numberCopy, int counterLackCulminate) {
+            int amountCopys = numberCopy - counterLackCulminate;
+
+            if (amountCopys > 0) {
+                System.out.println("Hay a disposición: " + amountCopys + " copias del libro con la identificacion: " +"\n");
+            }else {
+                System.out.println("No hay a disposición copias de libro; "  + "\n");
+            }
         }
 
 
-    }
+
+
+
+}
 
 
 
