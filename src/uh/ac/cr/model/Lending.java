@@ -4,7 +4,7 @@ package uh.ac.cr.model;
     private int id;
     private String lendingUser;
     private String lendingBook;
-    private String requestDate;
+    private  String requestDate;
     private String returnDate;
     private Boolean culminate;
 

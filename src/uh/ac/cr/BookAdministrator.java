@@ -13,6 +13,7 @@ public class BookAdministrator {
 
         public BookAdministrator() {
         }
+        //crear libro
 
         public void addBookToList(Book book) {
             booksList.add(book);
@@ -41,6 +42,8 @@ public class BookAdministrator {
             return bookCreated;
         }
 
+        //Obtener datos de un libro
+
         public void getBook (int bookId){
             boolean found = false;
             int bookIterator = 0;
@@ -58,6 +61,8 @@ public class BookAdministrator {
                 System.out.println("El libro con el id: " + bookId + " no esta registrado.\n");
             }
         }
+
+        //Eliminar un libro
 
         public void deleteBook (int bookId){
             boolean found = false;
@@ -78,7 +83,7 @@ public class BookAdministrator {
             }
         }
 
-        //Lista de libros
+        //Lista de libros registrados
 
         public String printBook() {
             String bookToPrint = "";
@@ -89,9 +94,9 @@ public class BookAdministrator {
             }
             return bookToPrint;
         }
-        public java.lang.String getBookLending(int id){
+        public String getBookLending(int id){
             boolean found = false;
-            java.lang.String book = null;
+            String book = null;
             int bookIterator = 0;
             while(!found && bookIterator < booksList.size()){
                 if(booksList.get(bookIterator).getId() == id){
@@ -126,7 +131,7 @@ public class BookAdministrator {
             int amountCopys = numberCopy - counterLackCulminate;
 
             if (amountCopys > 0) {
-                System.out.println("Hay a disposición: " + amountCopys + " copias del libro con la identificacion: " +"\n");
+                System.out.println("Hay a disposición: " + amountCopys + " copias del libro.\n");
             }else {
                 System.out.println("No hay a disposición copias de libro; "  + "\n");
             }

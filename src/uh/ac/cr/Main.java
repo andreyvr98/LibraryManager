@@ -25,7 +25,7 @@ public class Main {
         while (!exit) { //Menu principal
             System.out.println("\n---------------------------------------------------------------------\n");
 
-            System.out.println("1 = Administrar catálogos de datos.\n2 = Solicitar nuevo préstamo\n3 = Consultar todos los préstamos.\n4 = Consultar todos los préstamos realizados por un usuario.\n5 = Consultar todos los préstamos realizados de un libro.\n6 = Consultar préstamos en demora.\n7 = Salir del sistema.");
+            System.out.println("1. Administrar catálogos de datos.\n2. Solicitar nuevo préstamo\n3. Finalizar un prestamo.\n4. Consultar todos los préstamos realizados por un usuario.\n5. Consultar todos los préstamos realizados de un libro.\n6. Salir del sistema.\n");
             selectedOption = scanner.nextInt();
 
             System.out.println("\n---------------------------------------------------------------------\n");
@@ -426,7 +426,7 @@ public class Main {
                     exit = true;
                     break;
                 default:
-                    System.out.println("Por favor ingrese una opción valida, del rango del 1 al 5.");
+                    System.out.println("Opcion invalida. Ingrese una opción dentro del rango del 1 al 6.");
                     break;
 
             }
