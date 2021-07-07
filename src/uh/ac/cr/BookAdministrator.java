@@ -30,7 +30,6 @@ public class BookAdministrator {
             return found;
         }
 
-        //Crear nueva editorial
 
         public boolean createBook(int id, String author, String date, int edition, String title,String editorial, int copy) {
             boolean bookCreated = false;

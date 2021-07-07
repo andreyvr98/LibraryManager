@@ -391,11 +391,43 @@ public class Main {
                     }
 
                     break;
+
+                case 3:
+                    //Finalizar un préstamo
+                    System.out.println("Seleccione el prestamo con la identificación correspondiente que desea modificar."+"\n");
+                    System.out.println(lendingAdministrator.printlending());
+                    lendingId = scanner.nextInt();
+                    lendingAdministrator.endLending(lendingId);
+
+                    break;
+                case 4:
+                    //Consultar los prestamos de un usario
+                    System.out.println("Seleccione el usuario con la identificación correspondiente"+"\n");
+                    System.out.println(userAdministrator.printUser());
+                    userId = scanner.nextInt();
+                    scanner.nextLine();
+                    String lendingUser = userAdministrator.getUserLending(userId);
+                    lendingAdministrator.getUserLending(lendingUser);
+                    break;
+                case 5:
+                    //Consultar los prestamos de un libro
+                    System.out.println("Seleccione el libro con la identificación correspondiente");
+                    System.out.println(bookAdministrator.printBook());
+
+                     bookId = scanner.nextInt();
+                    scanner.nextLine();
+                    lendingBook = bookAdministrator.getBookLending(bookId);
+                    lendingAdministrator.getBookLending(lendingBook);
+
+                    break;
+                case 6:
+                    //salir al sistema.
+
+                    exit = true;
+                    break;
                 default:
                     System.out.println("Por favor ingrese una opción valida, del rango del 1 al 5.");
                     break;
-
-
 
             }
 

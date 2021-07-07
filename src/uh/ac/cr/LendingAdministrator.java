@@ -46,8 +46,8 @@ public class LendingAdministrator {
         int lendingIterator = 0;
         int counterLackCulminate =0;
 
-        while (lendingsList.size() < lendingIterator){
-            if (!lendingsList.get(lendingIterator).getCulminate()){
+        while (lendingsList.size() > lendingIterator){
+            if (lendingsList.get(lendingIterator).getCulminate()){
                 counterLackCulminate++;
             }else {
                 lendingIterator++;
